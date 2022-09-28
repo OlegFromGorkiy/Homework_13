@@ -19,11 +19,22 @@ public class Library {
         index++;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Library:\n");
+        //В моей реализации класса после первого пустого значения в массиве,
+        //все следующие тоже пустые, и по достижении первого нулевого значения цикл прерывается.
+        //iDea советует цикл foreash. В каком порядке этот цикл перебирает массивы и
+        //можно ли прервать цикл foreach по аналогии с тем как написано тут? (чтоб лишние пустые ячейки не перебирались)
+        //Вводить переменную длины и копировать алгоритмы ArrayList не хочется =)
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null) sb.append(books[i].toString()).append("\n");
+            else break;
+        }
+        return sb.toString().trim();
+    }
+
     public void viewAll() {
-        //Изначально был цикл fori, но iDea советовалат foreach. Цикл fori прерывался при достижении null значений
-        //(в моей реализации класса после первого пустого значения в массиве, все следующие тоже пустые).
-        //Как прервать цикл foreach при достижении первого нулевого значения?
-        //И в каком порядке этот цикл перебирает массив?
         Arrays.stream(books).filter(Objects::nonNull).forEach(System.out::println);
     }
 
