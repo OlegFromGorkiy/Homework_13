@@ -19,6 +19,16 @@ public class Library {
         index++;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Library:\n");
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null) sb.append(books[i].toString()).append("\n");
+            else break;
+        }
+        return sb.toString().trim();
+    }
+
     public void viewAll() {
         //Изначально был цикл fori, но iDea советовалат foreach. Цикл fori прерывался при достижении null значений
         //(в моей реализации класса после первого пустого значения в массиве, все следующие тоже пустые).

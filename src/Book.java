@@ -28,7 +28,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return String.format("%s: %s: %d", author.toString(), name, year);
+        return String.format("Book: %s by Author: %s",  name, author.toString());
     }
 
     @Override
